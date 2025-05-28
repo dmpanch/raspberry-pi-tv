@@ -112,12 +112,16 @@ display_rotate=3
 
 ### 4. Prepare and upload video to Raspberry
 
-1. Video Looper expects videos on in the /home/pi/video directory in .mp4 format, so just put them inside any way you like. You will seal the enclosure, so this can only be conveniently done over the network anyway, for example via scp:
+1. Expand SD card with `raspi-config`
+
+2. Edit `/boot/video_looper.ini` uncommenting option to play videos from the SD card
+
+3. Video Looper expects videos on in the /home/pi/video directory in .mp4 format, so just put them inside any way you like. You will seal the enclosure, so this can only be conveniently done over the network anyway, for example via scp:
 	* `scp "/Users/user/tubesync-downloads/video/tw "*.mp4 pi@192.168.1.114:/home/pi/video/` where
     	* `/Users/user/tubesync-downloads/video/tw "*.mp4` - all .mp4 files in the tw directory
     	* `pi@192.168.1.114` - user and IP address of Raspberry
 
-2. Tubesync - https://github.com/meeb/tubesync - is convenient for mass uploading Youtube videos.
+4. Tubesync - https://github.com/meeb/tubesync - is convenient for mass uploading Youtube videos.
 
 	* Tubesync downloads videos not in mp4, so you will need to convert them via ffmpeg, for example, for all .mkv files in the directory - `for f in *.mkv; do ffmpeg -i "$f" -c copy "${f%.mkv}.mp4"; done`
 	* As soon as the TV sees the new videos - it will start playing them. Refer to the Video Looper documentation to configure the playback settings
