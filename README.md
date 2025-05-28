@@ -108,7 +108,7 @@ display_rotate=3
 2. Create and run the `tvbutton.service`, which will be used to autorun the button control:
 	* `sudo nano /etc/systemd/system/tvbutton.service`
 	* copy code from the repository service `tvbutton.service`
-	* activate the service - `sudo systemctl enable tvplayer.service`.
+	* activate the service - `sudo systemctl enable tvbutton.service`.
 
 ### 4. Prepare and upload video to Raspberry
 
